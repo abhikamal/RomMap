@@ -1,35 +1,9 @@
 "use client";
 
 import Link from 'next/link';
-import { Shield, HardDrive, Tag, ArrowRight, Zap, Lock, Search, Loader2 } from 'lucide-react';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { Shield, HardDrive, Tag, ArrowRight, Zap, Lock, Search } from 'lucide-react';
 
 export default function Home() {
-  const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setIsLoading(true);
-    setError('');
-
-    const res = await signIn('credentials', {
-      redirect: false,
-      email,
-    });
-
-    if (res?.error) {
-      setError('An error occurred. Please try again.');
-      setIsLoading(false);
-    } else {
-      router.push('/dashboard');
-    }
-  };
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
